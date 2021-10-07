@@ -1,47 +1,47 @@
 
-if !exists('g:loaded_gfm_syntax')
-    runtime plugin/gfm_syntax.vim
-endif
 
-
-"if !g:gfm_syntax_enable_always && index(g:gfm_syntax_enable_filetypes, &l:filetype) == -1
-"    finish
-"endif
-
-
-" Inline code
-"
-" This is `inline` code.
-syn region githubFlavoredMarkdownCode start="\%(^\|[^`\\]\)\@<=`[^`]" end="`" display oneline
+""Hタグ
+"#color
+hi markdownH1Delimiter ctermfg=6 
+hi markdownH2Delimiter ctermfg=6
+hi markdownH3Delimiter ctermfg=6
+hi markdownH4Delimiter ctermfg=6
+hi markdownH5Delimiter ctermfg=6
+hi markdownH6Delimiter ctermfg=6
+"title
+hi markdownH1 ctermfg=178 
+hi markdownH2 ctermfg=178
+hi markdownH3 ctermfg=178
+hi markdownH4 ctermfg=178
+hi markdownH5 ctermfg=178
+hi markdownH6 ctermfg=178
 
 " Mentions
 " @rhysd @foo/bar
 syn match githubFlavoredMarkdownMention "\%(^\|\s\)\@<=@\S\+" display
+hi githubFlavoredMarkdownMention ctermfg=123
+
+" 'command'
+syn region markdownCommandMine start="'" end="'" oneline display
+hi markdownCommandMine ctermfg=230
 
 " Strikethrough
 " ~~This text is deleted~~
 syn region githubFlavoredMarkdownStrikethrough start="\~\~" end="\~\~"
+hi def link githubFlavoredMarkdownStrikethrough   Comment
 
+""* *
+"reset
+syn region markdownStrongMine start="*" end="*" 
+hi markdownStrongMine NONE
+"set * *
+syn region markdownStrongLineMine start="*" end="*" oneline display
+hi markdownStrongLineMine ctermfg=249
+"hi markdownItalic NONE
+"hi markdownItalicDelimiter NONE
 
-" Issue number
-" #123
-syn match githubFlavoredMarkdownIssueNumber "#\@<!#\d\+\>" display
-
-" Table
-"
-" |  A  |  B  |
-" | Foo | Woo |
-" | Bar | Hoo |
-syn match githubFlavoredMarkdownTable "^|.\+|\s*$" contains=
-            \githubFlavoredMarkdownTableDelimiter,githubFlavoredMarkdownTableAligner,githubFlavoredMarkdownTableAlignBorder,
-            \githubFlavoredMarkdownTableBorderAligner,githubFlavoredMarkdownTableBorder,githubFlavoredMarkdownCode,
-            \markdownBoldItalic,markdownBold,markdownItalic,markdownLinkText,markdownIdDeclaration,githubFlavoredMarkdownMention,
-            \githubFlavoredMarkdownIssueNumber,githubFlavoredMarkdownStrikethrough,githubFlavoredMarkdownEmoji
-syn match githubFlavoredMarkdownTableAlignBorder ":-\+:" contained containedin=githubFlavoredMarkdownTable display
-syn match githubFlavoredMarkdownTableAligner ":-\@=" contained containedin=githubFlavoredMarkdownTableAlignBorder display
-syn match githubFlavoredMarkdownTableAligner "-\@<=:" contained containedin=githubFlavoredMarkdownTableAlignBorder display
-syn match githubFlavoredMarkdownTableBorder "-\+" contained containedin=githubFlavoredMarkdownTableAlignBorder display
-syn match githubFlavoredMarkdownTableDelimiter "\\\@<!|" contained containedin=githubFlavoredMarkdownTable display
+" - , 1.  
+hi MarkdownListMarker ctermfg=218
 
 " Check box
 "
@@ -50,16 +50,49 @@ syn match githubFlavoredMarkdownTableDelimiter "\\\@<!|" contained containedin=g
 syn match githubFlavoredMarkdownCheckBox "\%(\_^\s*\%(-\|\*\|+\|\d\+\.\)\s\+\)\@<=\[[ x]]" contains=githubFlavoredMarkdownCheckBoxBracket,githubFlavoredMarkdownCheckBoxX
 syn match githubFlavoredMarkdownCheckBoxBracket "\[\|]" contained containedin=githubFlavoredMarkdownCheckBox
 syn keyword githubFlavoredMarkdownCheckBoxX x contained containedin=githubFlavoredMarkdownCheckBox
-
-hi def link githubFlavoredMarkdownCode            Constant
-hi def link githubFlavoredMarkdownMention         markdownLinkText
-hi def link githubFlavoredMarkdownStrikethrough   Comment
-hi def link githubFlavoredMarkdownEmoji           PreProc
-hi def link githubFlavoredMarkdownTableDelimiter  Delimiter
-hi def link githubFlavoredMarkdownTableAligner    Delimiter
-hi def link githubFlavoredMarkdownTableBorder     Type
-hi def link githubFlavoredMarkdownIssueNumber     Number
 hi def link githubFlavoredMarkdownCheckBoxBracket markdownListMarker
-hi def link githubFlavoredMarkdownCheckBoxX       Special
+hi githubFlavoredMarkdownCheckBoxX ctermfg=139 
 
-let b:gfm_syntax_enabled = 1
+"```
+hi markdownCodeDelimiter ctermfg=66
+
+"link title
+hi markdownLinkText ctermbg=0 ctermfg=114
+"link url
+hi markdownUrl ctermbg=0 ctermfg=107
+
+" _
+hi markdownError ctermbg=0 ctermfg=231
+
+
+
+"if !exists('g:loaded_gfm_syntax')
+"    runtime plugin/gfm_syntax.vim
+"endif
+"
+
+"if !g:gfm_syntax_enable_always && index(g:gfm_syntax_enable_filetypes, &l:filetype) == -1
+"    finish
+"endif
+
+" Inline code
+"
+" This is `inline` code.
+"syn region githubFlavoredMarkdownCode start="\%(^\|[^`\\]\)\@<=`[^`]" end="`" display oneline
+
+"" Issue number
+"" #123
+"syn match githubFlavoredMarkdownIssueNumber "#\@<!#\d\+\>" display
+"hi def link githubFlavoredMarkdownIssueNumber     Number
+
+
+
+
+
+
+
+
+
+
+
+
