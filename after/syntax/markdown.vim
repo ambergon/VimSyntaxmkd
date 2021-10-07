@@ -1,4 +1,8 @@
 
+if exists('g:ambergons_mkd_syntax')
+    finish
+endif
+let g:ambergons_mkd_syntax = 1
 
 ""Hタグ
 "#color
