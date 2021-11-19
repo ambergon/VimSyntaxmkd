@@ -43,8 +43,8 @@ hi markdownStrongMine NONE
 syn region markdownStrongLineMine start="*" end="*"
 hi markdownStrongLineMine NONE
 
-"hi markdownItalic NONE
-"hi markdownItalicDelimiter NONE
+hi markdownItalic NONE
+hi markdownItalicDelimiter NONE
 
 " - , 1.  
 hi MarkdownListMarker ctermfg=218
