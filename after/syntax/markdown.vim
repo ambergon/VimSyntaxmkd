@@ -36,11 +36,12 @@ hi def link githubFlavoredMarkdownStrikethrough   Comment
 
 ""* *
 "reset
-syn region markdownStrongMine start="*" end="*" 
-hi markdownStrongMine NONE
+"syn region markdownStrongMine start="*" end="*" 
+"hi markdownStrongMine NONE
 "set * *
-syn region markdownStrongLineMine start="*" end="*" oneline display
-hi markdownStrongLineMine ctermfg=249
+#syn region markdownStrongLineMine start="*" end="*"
+#hi markdownStrongLineMine ctermfg=249
+
 "hi markdownItalic NONE
 "hi markdownItalicDelimiter NONE
 
