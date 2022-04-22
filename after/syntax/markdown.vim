@@ -27,7 +27,7 @@ hi markdownCodeBlock ctermfg=218
 hi markdownCodeDelimiter ctermfg=217
 
 "``` to ```
-hi markdownCode ctermfg=219
+"hi markdownCode ctermfg=219
 
 
 "link title
